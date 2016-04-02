@@ -9,9 +9,9 @@ version = 1.2 -- refactored numerical gradient test into unit tests. Added train
 local opt = {}
 opt.learningRate = 0.1
 opt.hiddenSize = 6
-opt.vocabSize = 5
-opt.seqLen = 3 -- length of the encoded sequence
-opt.niter = 1000
+opt.vocabSize = 6
+opt.seqLen = 2 -- length of the encoded sequence
+opt.niter = 100
 
 --[[ Forward coupling: Copy encoder cell and output to decoder LSTM ]]--
 local function forwardConnect(encLSTM, decLSTM)

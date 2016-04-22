@@ -12,8 +12,9 @@ nIndex = 9102 -- vocabulary size
 nClass = 3 -- output classes (1, 2, or 3 variables to solve for)
 lr = 0.1 
 
+
 -- build simple recurrent neural network
-r = nn.FastLSTM(
+r = nn.Recurrent(
 	hiddenSize, nn.Identity(), 
 	nn.Linear(hiddenSize, hiddenSize), nn.Sigmoid(), 
 	rho
@@ -50,6 +51,11 @@ for i=1,ds.size do
 	sortVal:sort(sortIdx, buffer, 1)
 	ds.input[i]:copy(sortVal:view(-1))
 end
+
+print(ds.input[1], ds.target[1])
+print(ds.input[2], ds.target[2])
+print(ds.input[3], ds.target[3])
+os.exit()
 
 indices:resize(batchSize)
 

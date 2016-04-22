@@ -31,10 +31,12 @@ model = nn.Sequencer(
       :add(nn.MaskZero(nn.LogSoftMax(),1))
 )
 
+print(model)
+
 criterion = nn.SequencerCriterion(nn.MaskZeroCriterion(nn.ClassNLLCriterion(), 1))
 
 output = model:forward(x)
-print(output[1])
+print(output)
 
 err = criterion:forward(output, y1)
 print(err)
